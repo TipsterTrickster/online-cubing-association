@@ -1,0 +1,45 @@
+{% extends 'complist/base.html' %}
+{% block title %}Home{% endblock %}
+{% block body %}
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'home/home.css' %}" />
+<h1 class="head1">Welcome to the OCA!</h1>
+<!-- Tabs -->
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <br/>
+    <div id="tabs1">
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="#Announcements" class="nav-link" data-toggle="tab" style="margin-right: 380px;" >Announcements</a>
+        </li>
+        <li>
+            <a href="#Regulations" class="nav-link" data-toggle="tab">Regulations</a>
+        </li>
+        <li>
+            <a href="#About" class="nav-link" data-toggle="tab" style="margin-left: 460px;">About</a>
+        </li>
+    </ul>
+    </div>
+
+    <!-- Tab content -->
+     <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="Announcements">
+            <ul class="list">
+            {% for comp in object_list %}
+                <div class="container" id="announcement">
+            <li class="title">{{comp.title }}</li>
+            <li class="details">{{comp.details}}</li>
+                </div>
+            {% endfor %}
+</ul>
+        </div>
+         <div role="tabpanel" class="tab-pane" id="About"></div>
+        <div role="tabpanel" class="tab-pane" id="Regulations">
+            <h1 class="rhead">Please refer to the WCA regulations <a href="https://www.worldcubeassociation.org/regulations/"  target="_blank" class="link1">here</a> as we update ours!</h1>
+        </div>
+     </div>
+</div>
+
+
+
+{% endblock %}

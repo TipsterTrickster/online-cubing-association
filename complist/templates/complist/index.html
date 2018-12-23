@@ -1,0 +1,15 @@
+{% extends 'complist/base.html' %}
+{% block title %}Competitors{% endblock %}
+
+{% block body %}
+<div>
+<h1 style="text-align: center; font-size: 50px; color: black">Here is a list of all registered competitors</h1>
+<ul style="list-style-type: none; margin-top: 50px; font-size: 25px">
+    {% for comp in object_list %}
+    <li><a href="{% url 'complist:compinfo' comp.id %}" style="color: black;">{{comp.name}}</a></li>
+    {% endfor %}
+</ul>
+</div>
+
+
+{% endblock %}

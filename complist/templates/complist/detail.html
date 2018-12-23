@@ -1,0 +1,506 @@
+{% extends 'complist/base.html' %}
+{% block title %}Competitor Details{% endblock %}
+{% block body %}
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'complist/detail.css' %}" />
+<h1 class="header1"> {{ comp.name }} </h1>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Country</th>
+                <th>State/Province</th>
+                <th>OCA ID</th>
+                <th>Gender</th>
+                <th>Competitions</th>
+                <th>Completed Solves</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ comp.compcountry }}</td>
+                <td>{{ comp.compstate }}</td>
+                <td>{{ comp.compid }}</td>
+                <td>{{ comp.compgender }}</td>
+                <td>{{ comp.compcomp }}</td>
+                <td>{{ comp.compsolves }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Event</th>
+                <th>OR</th>
+                <th>Single</th>
+                <th>Average</th>
+                <th>OR</th>
+            <tr></tr>
+        </thead>
+        <tbody>
+            {% for event in comp.compdetails_set.all %}
+            <tr>
+                <td> {{ event.event_name }} </td>
+                <td> {{ event.ORS }} </td>
+                <td> {{ event.pb_single }} </td>
+                <td> {{ event.pb_average }} </td>
+                <td> {{ event.ORA }} </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+<div>
+<h3 class="header2">Medal Collection</h3>
+<div class="container" id="c3">
+    <table class="table" id="t3">
+        <thead>
+            <tr>
+                <th>Gold</th>
+                <th>Silver</th>
+                <th>Bronze</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ comp.GN }}</td>
+                <td>{{ comp.SN }}</td>
+                <td>{{ comp.BN }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+<div>
+<h3  class="header3">Record Collection</h3>
+
+</div>
+<div class="container" id="c4">
+    <table class="table" id="t4">
+        <thead>
+            <tr>
+                <th>OR</th>
+                <th>RR</th>
+                <th>SR</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ comp.ORN }}</td>
+                <td>{{ comp.RRN }}</td>
+                <td>{{ comp.SRN }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<h3 class="header4">All Results</h3>
+<div class="col-xs-12 col-sm-12 col-md012 col-lg-12 col-xs-12">
+    <br/>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a href="#1" class="nav-link" data-toggle="tab">3x3x3 Cube</a>
+        </li>
+        <li class="nav-item">
+            <a href="#2" class="nav-link" data-toggle="tab">2x2x2 Cube</a>
+        </li>
+        <li class="nav-item">
+            <a href="#3" class="nav-link" data-toggle="tab">4x4x4 Cube</a>
+        </li>
+        <li class="nav-item">
+            <a href="#4" class="nav-link" data-toggle="tab">5x5x5 Cube</a>
+        </li>
+        <li class="nav-item">
+            <a href="#5" class="nav-link" data-toggle="tab">6x6x6 Cube</a>
+        </li>
+        <li class="nav-item">
+            <a href="#6" class="nav-link" data-toggle="tab">7x7x7 Cube</a>
+        </li>
+        <li class="nav-item">
+            <a href="#7" class="nav-link" data-toggle="tab">3x3x3 Blindfolded</a>
+        </li>
+        <li class="nav-item">
+            <a href="#8" class="nav-link" data-toggle="tab">3x3x3 Fewest Moves</a>
+        </li>
+        <li class="nav-item">
+            <a href="#9" class="nav-link" data-toggle="tab">3x3x3 One-Handed</a>
+        </li>
+        <li class="nav-item">
+            <a href="#10" class="nav-link" data-toggle="tab">3x3x3 With Feet</a>
+        </li>
+        <li class="nav-item">
+            <a href="#11" class="nav-link" data-toggle="tab">Clock</a>
+        </li>
+        <li class="nav-item">
+            <a href="#12" class="nav-link" data-toggle="tab">Megaminx</a>
+        </li>
+        <li class="nav-item">
+            <a href="#13" class="nav-link" data-toggle="tab">Pyraminx</a>
+        </li>
+        <li class="nav-item">
+            <a href="#14" class="nav-link" data-toggle="tab">Skewb</a>
+        </li>
+        <li class="nav-item">
+            <a href="#15" class="nav-link" data-toggle="tab">Square-1</a>
+        </li>
+        <li class="nav-item">
+            <a href="#16" class="nav-link" data-toggle="tab">4x4x4 Blindfolded</a>
+        </li>
+        <li class="nav-item">
+            <a href="#17" class="nav-link" data-toggle="tab">5x5x5 Blindfolded</a>
+        </li>
+        <li class="nav-item">
+            <a href="#18" class="nav-link" data-toggle="tab">3x3x3 Multi-Blind</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane" id="1"><div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Competition Name</th>
+                            <th>Round</th>
+                            <th>Place</th>
+                            <th>Single</th>
+                            <th>Average</th>
+                            <th>Times</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div></div>
+        <div role="tabpanel" class="tab-pane" id="2"><div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Competition Name</th>
+                            <th>Round</th>
+                            <th>Place</th>
+                            <th>Single</th>
+                            <th>Average</th>
+                            <th>Times</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div></div>
+        <div role="tabpanel" class="tab-pane" id="3"><div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Competition Name</th>
+                            <th>Round</th>
+                            <th>Place</th>
+                            <th>Single</th>
+                            <th>Average</th>
+                            <th>Times</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div></div>
+        <div role="tabpanel" class="tab-pane" id="4"><div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Competition Name</th>
+                            <th>Round</th>
+                            <th>Place</th>
+                            <th>Single</th>
+                            <th>Average</th>
+                            <th>Times</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div></div>
+        <div role="tabpanel" class="tab-pane" id="5"><div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Competition Name</th>
+                            <th>Round</th>
+                            <th>Place</th>
+                            <th>Single</th>
+                            <th>Average</th>
+                            <th>Times</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div></div>
+        <div role="tabpanel" class="tab-pane" id="6"><div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Competition Name</th>
+                            <th>Round</th>
+                            <th>Place</th>
+                            <th>Single</th>
+                            <th>Average</th>
+                            <th>Times</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div></div>
+        <div role="tabpanel" class="tab-pane" id="7"><div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Competition Name</th>
+                            <th>Round</th>
+                            <th>Place</th>
+                            <th>Single</th>
+                            <th>Average</th>
+                            <th>Times</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div></div>
+        <div role="tabpanel" class="tab-pane" id="8"><div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Competition Name</th>
+                            <th>Round</th>
+                            <th>Place</th>
+                            <th>Single</th>
+                            <th>Average</th>
+                            <th>Times</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div></div>
+        <div role="tabpanel" class="tab-pane" id="9"><div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Competition Name</th>
+                            <th>Round</th>
+                            <th>Place</th>
+                            <th>Single</th>
+                            <th>Average</th>
+                            <th>Times</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div></div>
+        <div role="tabpanel" class="tab-pane" id="10"><div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Competition Name</th>
+                            <th>Round</th>
+                            <th>Place</th>
+                            <th>Single</th>
+                            <th>Average</th>
+                            <th>Times</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div></div>
+        <div role="tabpanel" class="tab-pane" id="11"><div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Competition Name</th>
+                            <th>Round</th>
+                            <th>Place</th>
+                            <th>Single</th>
+                            <th>Average</th>
+                            <th>Times</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div></div>
+        <div role="tabpanel" class="tab-pane" id="12"><div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Competition Name</th>
+                            <th>Round</th>
+                            <th>Place</th>
+                            <th>Single</th>
+                            <th>Average</th>
+                            <th>Times</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div></div>
+        <div role="tabpanel" class="tab-pane" id="13"><div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Competition Name</th>
+                            <th>Round</th>
+                            <th>Place</th>
+                            <th>Single</th>
+                            <th>Average</th>
+                            <th>Times</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div></div>
+        <div role="tabpanel" class="tab-pane" id="14"><div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Competition Name</th>
+                            <th>Round</th>
+                            <th>Place</th>
+                            <th>Single</th>
+                            <th>Average</th>
+                            <th>Times</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div></div>
+        <div role="tabpanel" class="tab-pane" id="15"><div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Competition Name</th>
+                            <th>Round</th>
+                            <th>Place</th>
+                            <th>Single</th>
+                            <th>Average</th>
+                            <th>Times</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div></div>
+        <div role="tabpanel" class="tab-pane" id="16"><div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Competition Name</th>
+                            <th>Round</th>
+                            <th>Place</th>
+                            <th>Single</th>
+                            <th>Average</th>
+                            <th>Times</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div></div>
+        <div role="tabpanel" class="tab-pane" id="17"><div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Competition Name</th>
+                            <th>Round</th>
+                            <th>Place</th>
+                            <th>Single</th>
+                            <th>Average</th>
+                            <th>Times</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div></div>
+        <div role="tabpanel" class="tab-pane" id="18"><div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Competition Name</th>
+                            <th>Round</th>
+                            <th>Place</th>
+                            <th>Single</th>
+                            <th>Average</th>
+                            <th>Times</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div></div>
+    </div>
+
+</div>
+<div style="margin-top: 500px"
+{% endblock %}
