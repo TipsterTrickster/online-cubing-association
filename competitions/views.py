@@ -10,3 +10,6 @@ class IndexView(generic.ListView):
 class DetailView(generic.DetailView):
     model = Competition
     template_name = 'competitions/detail.html'
+
+
+

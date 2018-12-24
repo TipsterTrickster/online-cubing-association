@@ -7,7 +7,7 @@
 {% for comp in object_list %}
 <div class="container">
 <ul class="complist">
-    <li class="compname">{{ comp.name}}</li>
+    <li class="compname"><a href="{% url 'competitions:compinfo' comp.id %}">{{ comp.name }}</a></li>
     <li class="compdate">{{ comp.date }}</li>
 </ul>
 </div>

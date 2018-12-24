@@ -1,0 +1,21 @@
+{% extends 'complist/base.html' %}
+{% block title %}Competition Details{% endblock %}
+{% block body %}
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'competitions/detail.css' %}" />
+<div>
+<ul>
+    <li>Date</li>
+    <li>{{ competition.date }}</li>
+    <li>Organizers</li>
+    <li>OCA Delegate(s)</li>
+</ul>
+</div>
+<div>
+    <h4>Details</h4>
+    <h6>{{ competition.decription }}</h6>
+</div>
+<div>
+
+</div>
+{% endblock %}
