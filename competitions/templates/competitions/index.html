@@ -2,8 +2,16 @@
 {% block title %}Competition list{% endblock %}
 {% block body %}
 {% load staticfiles %}
-<link rel="stylesheet" type="text/css" href="{% static 'competition/comp.css' %}" />
-<h1>Things MAY be here eventually</h1>
+<link rel="stylesheet" type="text/css" href="{% static 'competitions/index.css' %}" />
+<h1 class="header1">Here is a list of all upcoming competitions</h1>
+{% for comp in object_list %}
+<div class="container">
+<ul class="complist">
+    <li class="compname">{{ comp.name}}</li>
+    <li class="compdate">{{ comp.date }}</li>
+</ul>
+</div>
+{% endfor %}
 {% endblock %}
 
 

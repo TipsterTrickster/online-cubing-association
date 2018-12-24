@@ -1,0 +1,21 @@
+.header1 {
+    text-align: center;
+    color: black;
+}
+.complist {
+    list-style: none;
+    font-size: 25px;
+    color: black;
+    border-style: solid;
+}
+.compdate {
+    float: right;
+    margin-right: 25px;
+    margin-top: -35px;
+}
+.compname {
+    margin-left: 10px;
+}
+
+
+

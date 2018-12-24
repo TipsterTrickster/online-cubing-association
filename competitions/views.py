@@ -7,3 +7,6 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return Competition.objects.all()
 
+class DetailView(generic.DetailView):
+    model = Competition
+    template_name = 'competitions/detail.html'
